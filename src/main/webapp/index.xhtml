@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body >
+    <header>
+        <h:link value="Index" outcome="index"/>
+    </header>
+    <h2>All car owners:</h2>
+    <ol>
+        <ui:repeat value="#{indexCDI.allOwners}" var="o">
+            <li>
+                <h:link value="#{o.firstName} #{o.lastName}" outcome="owner?oId=#{o.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h2>Add client (car owner):</h2>
+    <h:form>
+        <label for="firstName">First name</label> <br/>
+        <h:inputText id="firstName" value="#{indexCDI.ownerToCreate.firstName}" required="true"/><br/>
+        <label for="lastName">Last name</label> <br/>
+        <h:inputText id="lastName" value="#{indexCDI.ownerToCreate.lastName}" required="true"/><br/>
+        <h:commandButton value="Add owner" action="#{indexCDI.createOwner}"/> <br/>
+    </h:form>
+</h:body>
+</html>

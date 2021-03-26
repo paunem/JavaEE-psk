@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head/>
+<h:body >
+    <header>
+        <h:link value="Index" outcome="index"/>
+    </header>
+    <h2>#{accidentsCDI.car.vin} #{accidentsCDI.car.manufacturer} #{accidentsCDI.car.model} accidents:</h2>
+    <ol>
+        <ui:repeat value="#{accidentsCDI.car.accidents}" var="a">
+            <li>#{a.date}, #{a.time}</li>
+        </ui:repeat>
+    </ol>
+    <h2>Add Accident:</h2>
+    <h:form>
+        <h:selectOneMenu  value="#{accidentsCDI.accidentToAddId}">
+            <f:selectItems value="#{accidentsCDI.allAccidents}" var="a" itemValue="#{a.id}" itemLabel="#{a.id} #{a.date} #{a.time} #{a.city}"/>
+        </h:selectOneMenu><br/>
+        <h:commandButton action="#{accidentsCDI.addAccidentToCar()}" value="Add">
+            <f:param name="cId" value="#{accidentsCDI.carId}" />
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>
