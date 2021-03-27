@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="lt.vu.mybatis.model.Accident" alias="Accident"/>
+        <typeAlias type="lt.vu.mybatis.model.Car" alias="Car"/>
+        <typeAlias type="lt.vu.mybatis.model.CarAccident" alias="CarAccident"/>
+        <typeAlias type="lt.vu.mybatis.model.Owner" alias="Owner"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="InsuranceDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/AccidentMapper.xml"/>
+        <mapper resource="mybatis.xml/CarAccidentMapper.xml"/>
+        <mapper resource="mybatis.xml/CarMapper.xml"/>
+        <mapper resource="mybatis.xml/OwnerMapper.xml"/>
+    </mappers>
+</configuration>
