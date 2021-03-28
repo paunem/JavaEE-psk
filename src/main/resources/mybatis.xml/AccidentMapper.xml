@@ -11,6 +11,8 @@
     <result column="DATE" jdbcType="DATE" property="date" />
     <result column="TIME" jdbcType="TIME" property="time" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <collection property="cars" ofType="lt.vu.mybatis.model.Car" javaType="ArrayList" column="ID" select="selectCarsForAccident">
+    </collection>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
@@ -62,5 +64,12 @@
     -->
     select ID, DATE, TIME, CITY
     from PUBLIC.ACCIDENT
+  </select>
+
+  <select id="selectCarsForAccident" resultType="lt.vu.mybatis.model.Car">
+    SELECT c.VIN, c.MANUFACTURER, c.MODEL
+    FROM CAR c
+           JOIN CAR_ACCIDENT ca on c.id = ca.CAR_ID
+    WHERE ca.ACCIDENT_ID = #{ID, jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -9,10 +9,10 @@
     <header>
         <h:link value="Index" outcome="index"/>
     </header>
-    <h2>Cars involved in accident #{accidentMyBatis.accident.id} #{accidentMyBatis.accident.date} #{accidentMyBatis.accident.time} #{accidentMyBatis.accident.city}:</h2>
+    <h2>Cars involved in accident  #{accidentMB.accident.date} #{accidentMB.accident.time} #{accidentMB.accident.city}:</h2>
     <ol>
-        <ui:repeat value="#{accidentMyBatis.accident.cars}" var="c">
-            <li>"#{c.vin}, #{c.manufacturer} #{c.model}"</li>
+        <ui:repeat value="#{accidentMB.accident.cars}" var="c">
+            <li>#{c.vin}, #{c.manufacturer}, #{c.model}</li>
         </ui:repeat>
     </ol>
 </h:body>

@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 @Model
-public class AccidentMyBatis implements Serializable {
+public class AccidentMB implements Serializable {
 
     @Inject
     private AccidentMapper accidentMapper;

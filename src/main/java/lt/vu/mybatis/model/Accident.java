@@ -1,13 +1,14 @@
 package lt.vu.mybatis.model;
 
-import java.util.Date;
-import java.util.Set;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.List;
 
 public class Accident {
 
-    private Set<Car> cars;
+    private List<Car> cars;
 
-    public Set<Car> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
     /**
@@ -35,7 +36,7 @@ public class Accident {
      *
      * @mbg.generated Sat Mar 27 19:17:58 EET 2021
      */
-    private Date time;
+    private Time time;
 
     /**
      *
@@ -102,7 +103,7 @@ public class Accident {
      *
      * @mbg.generated Sat Mar 27 19:17:58 EET 2021
      */
-    public Date getTime() {
+    public Time getTime() {
         return time;
     }
 
@@ -114,7 +115,7 @@ public class Accident {
      *
      * @mbg.generated Sat Mar 27 19:17:58 EET 2021
      */
-    public void setTime(Date time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 

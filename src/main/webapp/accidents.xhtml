@@ -14,7 +14,7 @@
     <ol>
         <ui:repeat value="#{accidentsCDI.car.accidents}" var="a">
             <li>
-                <h:link value="#{a.date}, #{a.time} #{a.city}" outcome="accidentMyBatis?aId=#{a.id}" />
+                <h:link value="#{a.date}, #{a.time}, #{a.city}" outcome="accidentMyBatis?aId=#{a.id}" />
             </li>
         </ui:repeat>
     </ol>
