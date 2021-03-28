@@ -4,12 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Accident;
 import lt.vu.entities.Car;
-import lt.vu.entities.Owner;
 import lt.vu.persistence.AccidentDAO;
 import lt.vu.persistence.CarDAO;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;

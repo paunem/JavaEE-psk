@@ -13,7 +13,9 @@
     <h2>#{accidentsCDI.car.vin} #{accidentsCDI.car.manufacturer} #{accidentsCDI.car.model} accidents:</h2>
     <ol>
         <ui:repeat value="#{accidentsCDI.car.accidents}" var="a">
-            <li>#{a.date}, #{a.time}</li>
+            <li>
+                <h:link value="#{a.date}, #{a.time} #{a.city}" outcome="accidentMyBatis?aId=#{a.id}" />
+            </li>
         </ui:repeat>
     </ol>
     <h2>Add Accident:</h2>
