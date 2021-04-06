@@ -9,10 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.util.List;
 
 @Model
-public class IndexCDI {
+public class IndexCDI implements Serializable {
 
     @Inject
     private OwnerDAO ownerDAO;

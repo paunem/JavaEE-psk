@@ -38,6 +38,8 @@ public class AccidentsCDI implements Serializable {
     private int accidentToAddId;
 
 
+
+
     @PostConstruct
     public void init() {
         Map<String, String> requestParameters =
@@ -48,7 +50,7 @@ public class AccidentsCDI implements Serializable {
 
     private void loadCarAccidents() {
         this.car = carDAO.getById(carId);
-        this.allAccidents = accidentDAO.loadAll();
+        this.allAccidents = accidentDAO.getAccidentsToShow(carId);
     }
 
     @Transactional

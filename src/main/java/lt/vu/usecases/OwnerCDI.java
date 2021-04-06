@@ -12,10 +12,11 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.util.Map;
 
 @Model
-public class OwnerCDI {
+public class OwnerCDI implements Serializable {
 
     @Inject
     private OwnerDAO ownerDAO;

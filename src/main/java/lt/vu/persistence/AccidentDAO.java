@@ -7,7 +7,9 @@ import lt.vu.entities.Owner;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @ApplicationScoped
 public class AccidentDAO {
@@ -38,4 +40,15 @@ public class AccidentDAO {
         em.merge(car);
     }
 
+    public List<Accident> getAccidentsToShow(int carId){
+        Car car = em.find(Car.class, carId);
+        Set<Accident> accidents = car.getAccidents();
+        List<Accident> allAccidents = em.createNamedQuery("Accident.findAll", Accident.class).getResultList();
+        List<Accident> accidentsToShow = new ArrayList<>();
+        for(Accident a : allAccidents){
+            if(!accidents.contains(a))
+                accidentsToShow.add(a);
+        }
+        return accidentsToShow;
+    }
 }
