@@ -61,7 +61,7 @@ public class Car implements Serializable {
         this.id = id;
         this.vin = vin;
         this.manufacturer = manufacturer;
-        this.model = model;
         this.owner = owner;
     }
+    public Car() {}
 }

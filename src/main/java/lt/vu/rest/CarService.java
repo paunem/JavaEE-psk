@@ -2,6 +2,7 @@ package lt.vu.rest;
 
 import lt.vu.entities.Car;
 import lt.vu.persistence.CarDAO;
+import lt.vu.persistence.OwnerDAO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -11,6 +12,8 @@ import javax.ws.rs.NotFoundException;
 public class CarService {
     @Inject
     CarDAO carDAO;
+    @Inject
+    OwnerDAO ownerDAO;
 
     public Car get(int id) throws NotFoundException {
         Car car = carDAO.getById(id);
@@ -28,12 +31,16 @@ public class CarService {
         car.setVin(carDTO.getVin());
         car.setManufacturer(carDTO.getManufacturer());
         car.setModel(carDTO.getModel());
+        car.setOwner(ownerDAO.getById(carDTO.getOwnerId()));
         carDAO.update(car);
     }
 
     public void saveFromDTO(CarDTO carDTO) {
-        Car car = new Car(carDTO.getId(), carDTO.getVin(), carDTO.getManufacturer(),
-                carDTO.getModel(), carDTO.getOwner());
+        Car car = new Car();
+        car.setVin(carDTO.getVin());
+        car.setManufacturer(carDTO.getManufacturer());
+        car.setModel(carDTO.getModel());
+        car.setOwner(ownerDAO.getById(carDTO.getOwnerId()));
         carDAO.persist(car);
     }
 }

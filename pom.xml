@@ -44,6 +44,12 @@
             <artifactId>mybatis-cdi</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>3.15.1.Final</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>

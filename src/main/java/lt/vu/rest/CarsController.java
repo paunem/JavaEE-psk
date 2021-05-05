@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 
 @ApplicationScoped
 @Path("/cars")
-public class CarController {
+public class CarsController {
 
     @Inject
     @Setter @Getter
@@ -24,11 +24,11 @@ public class CarController {
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getById(@PathParam("id") final Integer id) {
+    public Response getById(@PathParam("id") final int id) {
         try {
             Car car = carService.get(id);
             CarDTO carDTO = new CarDTO(car.getId(), car.getVin(), car.getManufacturer(),
-                    car.getModel(), car.getOwner());
+                    car.getModel(), car.getOwner().getId());
             return Response.ok(carDTO).build();
         } catch (NotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
