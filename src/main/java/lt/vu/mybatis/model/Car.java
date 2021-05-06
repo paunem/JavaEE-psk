@@ -54,6 +54,9 @@ public class Car {
      *
      * @mbg.generated Sat Mar 27 19:17:58 EET 2021
      */
+
+    private String category;
+
     public Integer getId() {
         return id;
     }
@@ -164,5 +167,13 @@ public class Car {
      */
     public void setOwnerId(Integer ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

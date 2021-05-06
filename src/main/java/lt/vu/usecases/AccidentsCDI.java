@@ -38,8 +38,6 @@ public class AccidentsCDI implements Serializable {
     private int accidentToAddId;
 
 
-
-
     @PostConstruct
     public void init() {
         Map<String, String> requestParameters =

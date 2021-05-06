@@ -33,6 +33,10 @@ public class Car implements Serializable {
     @Column(name = "MODEL")
     private String model;
 
+    @Basic
+    @Column(name = "CATEGORY")
+    private String category;
+
     @ManyToOne
     @JoinColumn(name = "OWNER_ID")
     private Owner owner;

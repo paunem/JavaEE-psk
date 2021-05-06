@@ -67,7 +67,7 @@
   </select>
 
   <select id="selectCarsForAccident" resultType="lt.vu.mybatis.model.Car">
-    SELECT c.VIN, c.MANUFACTURER, c.MODEL
+    SELECT c.VIN, c.MANUFACTURER, c.MODEL, c.CATEGORY
     FROM CAR c
            JOIN CAR_ACCIDENT ca on c.id = ca.CAR_ID
     WHERE ca.ACCIDENT_ID = #{ID, jdbcType=VARCHAR}
