@@ -2,6 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.decorators.IEvaluation;
 import lt.vu.entities.Car;
 import lt.vu.entities.Owner;
 import lt.vu.interceptors.LoggedInvocation;
@@ -25,6 +26,9 @@ public class OwnerCDI implements Serializable {
     @Inject
     private ICarDAO carDAO;
 
+    @Inject
+    private IEvaluation evaluation;
+
     @Getter
     private Owner owner;
 
@@ -45,6 +49,7 @@ public class OwnerCDI implements Serializable {
 
     private void loadOwner() {
         this.owner = ownerDAO.getById(ownerId);
+        evaluation.evaluateOwner(this.owner);
     }
 
     @LoggedInvocation
