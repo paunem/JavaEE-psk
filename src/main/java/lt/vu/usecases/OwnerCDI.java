@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Car;
 import lt.vu.entities.Owner;
-import lt.vu.persistence.CarDAO;
+import lt.vu.interceptors.LoggedInvocation;
+import lt.vu.persistence.ICarDAO;
 import lt.vu.persistence.OwnerDAO;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +23,7 @@ public class OwnerCDI implements Serializable {
     private OwnerDAO ownerDAO;
 
     @Inject
-    private CarDAO carDAO;
+    private ICarDAO carDAO;
 
     @Getter
     private Owner owner;
@@ -46,6 +47,7 @@ public class OwnerCDI implements Serializable {
         this.owner = ownerDAO.getById(ownerId);
     }
 
+    @LoggedInvocation
     @Transactional
     public String createCar() {
         carToCreate.setOwner(this.owner);

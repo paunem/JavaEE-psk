@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class CarDAO {
+public class CarDAO implements ICarDAO{
 
     @Inject
     private EntityManager em;

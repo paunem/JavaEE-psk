@@ -27,7 +27,7 @@
         <label for="Model">Model</label> <br/>
         <h:inputText id="Model" value="#{ownerCDI.carToCreate.model}" required="true"/><br/>
         <label for="Category">Category</label> <br/>
-        <h:inputText id="Category" value="#{ownerCDI.carToCreate.category}" required="true"/><br/>
+        <h:inputText id="Category" value="#{ownerCDI.carToCreate.category}" required="false"/><br/>
         <h:commandButton value="Add car for #{ownerCDI.owner.firstName} #{ownerCDI.owner.lastName}" action="#{ownerCDI.createCar}">
             <f:param name="oId" value="#{ownerCDI.ownerId}" />
         </h:commandButton> <br/>
