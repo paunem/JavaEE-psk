@@ -1,8 +1,9 @@
-package lt.vu.rest;
+package lt.vu.services;
 
 import lt.vu.entities.Car;
 import lt.vu.persistence.CarDAO;
 import lt.vu.persistence.OwnerDAO;
+import lt.vu.rest.CarDTO;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

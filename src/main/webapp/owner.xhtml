@@ -9,6 +9,9 @@
 <h:body >
     <header>
         <h:link value="Index" outcome="index"/>
+        <f:metadata>
+            <f:viewParam name="oId" value="#{insuranceCost.ownerId}" />
+        </f:metadata>
     </header>
     <h2>#{ownerCDI.owner.firstName} #{ownerCDI.owner.lastName} cars:</h2>
     <ol>
@@ -31,6 +34,13 @@
         <h:commandButton value="Add car for #{ownerCDI.owner.firstName} #{ownerCDI.owner.lastName}" action="#{ownerCDI.createCar}">
             <f:param name="oId" value="#{ownerCDI.ownerId}" />
         </h:commandButton> <br/>
+    </h:form>
+    <br/>
+    <h:form>
+        <h:outputText value="#{insuranceCost.costCalculatorStatus()}"/><br/>
+        <h:commandButton value="Calculate new price" disabled="#{insuranceCost.calculatingCost}" action="#{insuranceCost.calculateCost()}">
+            <f:param name="oId" value="#{ownerCDI.ownerId}" />
+        </h:commandButton>
     </h:form>
 </h:body>
 </html>
