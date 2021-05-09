@@ -41,6 +41,10 @@ public class Car implements Serializable {
     @JoinColumn(name = "OWNER_ID")
     private Owner owner;
 
+    @Version
+    @Column(name = "VERSION")
+    private Integer version;
+
     @ManyToMany
     @JoinTable(
             name = "CAR_ACCIDENT",

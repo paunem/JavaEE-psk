@@ -27,5 +27,18 @@
             <f:param name="cId" value="#{accidentsCDI.carId}" />
         </h:commandButton>
     </h:form>
+    <br/>
+    <h:form>
+        <h:inputText value="#{updateCarInfo.car.manufacturer}" required="true"/>
+        <h:commandButton value="Change manufacturer" action="#{updateCarInfo.updateManufacturer}">
+            <f:param name="cId" value="#{updateCarInfo.carId}"/>
+        </h:commandButton>
+    </h:form>
+    <h:form>
+        <h:inputText value="#{updateCarInfo.car.model}" required="true"/>
+        <h:commandButton value="Change model" action="#{updateCarInfo.updateModel}">
+            <f:param name="cId" value="#{updateCarInfo.carId}"/>
+        </h:commandButton>
+    </h:form>
 </h:body>
 </html>
