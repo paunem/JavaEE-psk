@@ -3,6 +3,7 @@ package lt.vu.rest;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Car;
+import lt.vu.services.CarService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -28,7 +29,9 @@ public class CarsController {
         try {
             Car car = carService.get(id);
             CarDTO carDTO = new CarDTO(car.getId(), car.getVin(), car.getManufacturer(),
-                    car.getModel(), car.getOwner().getId());
+                    car.getModel(), car.getCategory(),
+                    new OwnerDTO(car.getOwner().getId(), car.getOwner().getFirstName(),
+                            car.getOwner().getLastName()));
             return Response.ok(carDTO).build();
         } catch (NotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).build();

@@ -32,7 +32,8 @@ public class CarService {
         car.setVin(carDTO.getVin());
         car.setManufacturer(carDTO.getManufacturer());
         car.setModel(carDTO.getModel());
-        car.setOwner(ownerDAO.getById(carDTO.getOwnerId()));
+        car.setCategory(carDTO.getCategory());
+        car.setOwner(ownerDAO.getById(carDTO.getOwner().getId()));
         carDAO.update(car);
     }
 
@@ -41,7 +42,8 @@ public class CarService {
         car.setVin(carDTO.getVin());
         car.setManufacturer(carDTO.getManufacturer());
         car.setModel(carDTO.getModel());
-        car.setOwner(ownerDAO.getById(carDTO.getOwnerId()));
+        car.setCategory(carDTO.getCategory());
+        car.setOwner(ownerDAO.getById(carDTO.getOwner().getId()));
         carDAO.persist(car);
     }
 }

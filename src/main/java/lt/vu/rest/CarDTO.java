@@ -10,13 +10,16 @@ public class CarDTO {
     private String vin;
     private String manufacturer;
     private String model;
-    private Integer ownerId;
+    private String category;
+    private OwnerDTO owner;
 
-    public CarDTO(Integer id, String vin, String manufacturer, String model, Integer ownerId) {
+    public CarDTO(){}
+    public CarDTO(Integer id, String vin, String manufacturer, String model, String category, OwnerDTO owner) {
         this.id = id;
         this.vin = vin;
         this.manufacturer = manufacturer;
         this.model = model;
-        this.ownerId = ownerId;
+        this.category = category;
+        this.owner = owner;
     }
 }
