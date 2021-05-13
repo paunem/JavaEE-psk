@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
->
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
 <h:head/>
 <h:body >
     <header>
@@ -29,16 +29,11 @@
     </h:form>
     <br/>
     <h:form>
-        <h:inputText value="#{updateCarInfo.car.manufacturer}" required="true"/>
-        <h:commandButton value="Change manufacturer" action="#{updateCarInfo.updateManufacturer}">
-            <f:param name="cId" value="#{updateCarInfo.carId}"/>
-        </h:commandButton>
-    </h:form>
-    <h:form>
-        <h:inputText value="#{updateCarInfo.car.model}" required="true"/>
-        <h:commandButton value="Change model" action="#{updateCarInfo.updateModel}">
-            <f:param name="cId" value="#{updateCarInfo.carId}"/>
-        </h:commandButton>
+        <h:commandButton value="Update model" action="#{updateCarModel.test()}" >
+            <f:param name="cId" value="#{accidentsCDI.carId}"/>
+        </h:commandButton><br/>
+        <h:outputText value="#{updateCarModel.update1Status}" /><br/>
+        <h:outputText value="#{updateCarModel.update2Status}" />
     </h:form>
 </h:body>
 </html>

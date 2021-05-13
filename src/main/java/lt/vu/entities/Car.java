@@ -65,11 +65,5 @@ public class Car implements Serializable {
         return Objects.hash(id, vin, manufacturer, model);
     }
 
-    public Car(Integer id, String vin, String manufacturer, String model, Owner owner) {
-        this.id = id;
-        this.vin = vin;
-        this.manufacturer = manufacturer;
-        this.owner = owner;
-    }
     public Car() {}
 }
